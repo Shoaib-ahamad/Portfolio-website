@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         
-        {/* Google Tag Manager - Only runs in browser */}
         {gtmId && (
           <Script
             id="gtm-script"
@@ -47,7 +46,6 @@ export default function RootLayout({ children }) {
           />
         )}
         
-        {/* Fallback noscript for users without JavaScript */}
         {gtmId && (
           <noscript>
             <iframe 

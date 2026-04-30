@@ -36,7 +36,7 @@ function ContactForm() {
     try {
       setIsLoading(true);
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`,
+        "/api/contact",
         userInput
       );
 
@@ -81,9 +81,9 @@ function ContactForm() {
               required={true}
               value={userInput.email}
               onChange={(e) => setUserInput({ ...userInput, email: e.target.value })}
-              onBlur={() => {
+              onBlur={(e) => {
                 checkRequired();
-                setError({ ...error, email: !isValidEmail(userInput.email) });
+                setError({ ...error, email: !isValidEmail(e.target.value) });
               }}
             />
             {error.email && <p className="text-sm text-red-400">Please provide a valid email!</p>}
